@@ -1,0 +1,16 @@
+COMP3900 Project Diary - Hayley Yu z5218663
+
+Week 1: 
+-> Formed a group, selected scrum master, and picked a project. 
+-> We will be working on P7, fake news detection. Two of our members have prior experience with machine learning (COMP9444), and the rest of the team members are more interested in front-end. 
+-> Dylan set up a notion page with a timeline / checklist, as well as organised our communication plans (Discord server + a when2meet to decide common meeting availabilities)
+-> I set up our Jira, and started researching the project topic. 
+-> One article that was a particularly interesting read was https://www.mdpi.com/2079-9292/10/19/2326, which provided insight into similar existing work, as well as background on the history surrounding this topic. 
+
+Week 2: 
+-> Dylan brought up an issue with the APIs that the client asked to use, and from moodle forums, looks like other groups are having similar thoughts. This will be discussed with the client. 
+-> Communicated with the other group who is also working on this project, and we will be doing a joint meeting with the client on Tuesday 10am next week. 
+-> During this meeting, we mainly used it to finalise some ideas so that we are on the same page, and asked our tutor to teach us about how to use Jira to set up our user stories, as well as some ideas for what our diagrams may look like. 
+-> Led the discussion on our project objectives (which helps with user stories), and assigned tasks for each group member, with a deadline of Sunday for the initial draft. I will be working on the user stories, with a primary focus on the machine learning requirements.
+-> Made an example user story to learn Jira and show everyone the process 
+-> Throughout the week, I worked on the user stories section of the proposal. 
