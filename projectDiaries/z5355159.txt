@@ -1,0 +1,25 @@
+Week1
+
+1. Confirmed team members, name, scrum mater, each members’ knowledge, project to work on, basic structure of the product, roles of each members.
+2. Created Jira for development using Agile methodologies, Discord server for collaboration & communication, team meeting.
+3. Started research for the project, decided languages/libraries/framework to use.
+4. Plan to share foundings from individual research during week2 tutorial.
+
+Week2
+
+1. Plan to share foundings from individual research during week2 tutorial - Finished
+2. Found issue with the use of APIs that client asked to use, should be discussed with client.
+3. Confirmed replacement meeting schedule for week4 public holiday.
+4. Set up plan for meeting with client, found other group working on the same project, planned joint meeting of two groups and the client on week3 Mon.
+5. Confirmed objectives/functionalities, details to be included in the proposal report
+6. Divided tasks for proposal report across team members, set up draft deadline for week2 Sun.
+
+Week3 
+
+1. Found issue with the use of APIs that client asked to use, should be discussed with client. - Solved issue as we have been provided access to Twitter & LIWC API by client.
+2. Set up plan for meeting with client, found other group working on the same project, planned joint meeting of two groups and the client on week3 Mon. - Completed joint meeting, confirmed brief plan for project, discussed suggestions for new idea.
+3. Planned next meeting with client at 1000-1100 10/03 Tue Week4 2024.
+4. Planned next meeting with tutor at 1530-1600 10/06 Fri Week4 2024.
+5. Client provided useful articles and existing models, plan to complete a literature review by the end of sprint 1.
+6. Completed proposal report and plan to review with client during next meeting.
+7. Found minor issue with LIWC as it only supports CLI access but not API, will be discussed with client during the meeting.
