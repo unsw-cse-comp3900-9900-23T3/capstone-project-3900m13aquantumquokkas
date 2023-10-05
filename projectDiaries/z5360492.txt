@@ -1,0 +1,15 @@
+Week 1
+During our tutorial this week I found my group members Armani, Danny, Dylan, and Hayley and formed the team Quantum Quokkas with Hayley being our Scrum Master. 
+We promptly decided on our group project: Twitter Fake News Detection and discussed how we would approach this project and what language and model we would use. 
+We set up Jira and also a discord server where we can communicate efficiently.
+
+Week 2
+This week we realised there was an issue with the Twitter API outlined in the project specs. 
+After consulting with another group doing the same project, we emailed our client to arrange a meeting to discuss this issue and get clarification on the project requirements. 
+Aside from this, we delegated work between the team to work on the proposal report, preparing to have a draft ready by next week's meeting. 
+
+Week 3
+After meeting with the client alongside the other group, we have been granted access to Twitter and LIWC and the meeting with the client will be repeated on a weekly basis for project updates and discussion. 
+We have since found another issue being that LIWC supports CLI and not API, which will be discussed with the client next week. 
+Our team revised and finalised our proposal report, and was finally submitted. 
+Our next tutorial meeting would be on a public holiday and hence rearranged to an online meeting week 4 Friday.
