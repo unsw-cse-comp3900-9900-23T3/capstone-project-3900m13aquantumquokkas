@@ -1,0 +1,19 @@
+week1:
+- form the group, select scrum master, and decide the topic
+- the topic is selected to be P7,fake news detection
+- start doing few research on out project topic
+- Dylan set up the timeline and the checklist for each week
+- complete the html and css lesson
+
+week2:
+-assign the task for the project proposal, was assigned to complete the interface design
+-start designing the framework and userflow of the interface, Hailey suggest to folow the youtube mp3 converter design templete
+-arrage the first meeting with the client (tuesday 10am)
+
+week3:
+-design the interface by using figma, design the team logo and the storyboard 
+-discuss first design version with the members
+
+week4:
+-did the research on how to connect the frontend interface with figma
+-arrage the group meeting on Friday morning and have a fronend group meeting on Saturday morning
