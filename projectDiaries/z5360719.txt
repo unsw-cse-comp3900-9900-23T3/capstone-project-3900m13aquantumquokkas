@@ -1,0 +1,14 @@
+COMP3900 Journal
+
+Week 1
+Formed a group with Dylan Armani Hayley and Rowena during tutorial. We went through all the projects available and voted on the ones we prefer. 
+Project 7 happens to be the one everyone is interested in, therefore we finalised our project selection right away. We also discussed about further details such as the structure of the project.
+Everyone joined Jira and Discord group chat for communication
+
+Week 2
+During our tutorial, we realised an issue regarding Twitter API, it is essential for the project asa it allows us to retrieve data from Twitter server and build applications with it.
+We raised the issue to the client with another group doing the same project and arranged a meeting with our client. We also distributed work among the group and started to work on our project proposal.
+
+Week 3
+I completed the System Architecture Diagram section and uploaded my contribution to the group doc. The client provided us access to Twitter API and arranged weekly meeting for project updates and discussion.
+During the week, we realised that LIWC doest not support API. We will discuss this problem with our client during next week's meeting. We finalised our report during the weekend and submitted.
