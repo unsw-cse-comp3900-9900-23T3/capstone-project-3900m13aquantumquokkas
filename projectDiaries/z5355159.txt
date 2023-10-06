@@ -23,3 +23,15 @@ Week3
 5. Client provided useful articles and existing models, plan to complete a literature review by the end of sprint 1.
 6. Completed proposal report and plan to review with client during next meeting.
 7. Found minor issue with LIWC as it only supports CLI access but not API, will be discussed with client during the meeting.
+
+Week4
+
+Week4
+
+1. Planned next meeting with client at 1000-1100 10/03 Tue Week4 2024. - Completed meeting, received datasets for training, confirmed not to use Academic reserach pack on Twitter as Twitter does not support it anymore. 
+2. Planned next meeting with tutor at 1530-1600 10/06 Fri Week4 2024. - Completed meeting, updated progress, discussed about demo requirements, asked review for model structure.
+3. Client provided useful articles and existing models, plan to complete a literature review by the end of sprint 1. - Completed review of related articles, existing works.
+4. Found minor issue with LIWC as it only supports CLI access but not API, will be discussed with client during the meeting. - Notified to client, will be discussed among members.
+5. Planned to complete model structure by 10/13 Fri Week5 as client requested. - Had meeting with members at 1200-1300 10/06 Fri Week4 2024 to confirm model structure.
+6. Completed simple data pipeline containing LIAR dataset preprocessing, LIWC CLI connection, Google fact check tools API connection.
+7. Planned to build skeleton frontend, literature review report and simple model structure for progressive demo A.
