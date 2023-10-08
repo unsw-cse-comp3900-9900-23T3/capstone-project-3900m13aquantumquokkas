@@ -14,3 +14,15 @@ Week 2:
 -> Led the discussion on our project objectives (which helps with user stories), and assigned tasks for each group member, with a deadline of Sunday for the initial draft. I will be working on the user stories, with a primary focus on the machine learning requirements.
 -> Made an example user story to learn Jira and show everyone the process 
 -> Throughout the week, I worked on the user stories section of the proposal. 
+
+Week 3: 
+-> Worked on project proposal
+-> I worked with Row on creating our user stories and their respective acceptance criteria. She handled stories related to the frontend, while I handled stories for the backend.
+
+Week 4: 
+-> I coordinated with unsw admin and client's research student to acquire LIWC client license for our team.  
+-> Explored LIWC client 
+-> Received datasets from client & research student
+-> No tutorial this week (public holiday) but met with tutor on Friday to discuss how our project is progressing.
+-> The plan for next week's progressive demo is: I will write up our findings from the papers, Dylan explores LIWC and google API, and Row, Danny, and Armani will work on an initial draft of our frontend page. 
+-> Wrote up literature review document with our findings from the papers our client gave us
