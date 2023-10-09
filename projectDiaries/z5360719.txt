@@ -12,3 +12,8 @@ We raised the issue to the client with another group doing the same project and 
 Week 3
 I completed the System Architecture Diagram section and uploaded my contribution to the group doc. The client provided us access to Twitter API and arranged weekly meeting for project updates and discussion.
 During the week, we realised that LIWC doest not support API. We will discuss this problem with our client during next week's meeting. We finalised our report during the weekend and submitted.
+
+Week 4
+During meeting, the client gave us some datasets to use which we ran on our model. We also agreed to no longer to academic research on Twitter.
+For the Progressive Demo A, we wrote a literature review as we mostly did research, our current model, and a simple frontend design.
+We checked off the corresponding user stories for sprint 1.
