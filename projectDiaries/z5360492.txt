@@ -13,3 +13,10 @@ After meeting with the client alongside the other group, we have been granted ac
 We have since found another issue being that LIWC supports CLI and not API, which will be discussed with the client next week. 
 Our team revised and finalised our proposal report, and was finally submitted. 
 Our next tutorial meeting would be on a public holiday and hence rearranged to an online meeting week 4 Friday.
+
+Week 4
+After our meeting with the client, we were able to obtain datasets to train our model with, and also determined we will not be using our academic research pack on Twitter as thats no longer within their policies.
+This week our team mainly focused on completing sprint one and preparing for our demo.
+We finalised the model we will be using, began making a simple frontend design, and wrote a literature review based on the recommended articles provided by the client.
+To test our model, we also ran some simple data pipelines containing LIAR dataset preprocessing, LIWC CLI connection, Google fact check tools API connection.
+We will have another meeting with the client next week to update her on our progress.
