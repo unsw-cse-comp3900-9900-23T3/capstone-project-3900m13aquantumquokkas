@@ -1,0 +1,63 @@
+
+#logo {
+  width: 30%;
+  width: 50%;
+  margin-left: 280;
+}
+
+
+#title {
+    font-family: 'Merriweather', serif;
+    text-align: center;
+    font-size: 25;
+    
+}
+#resulttitle{
+    font-family: 'Merriweather', serif;
+    text-align: center;
+    font-size: 30px;
+}
+
+
+#box1 {
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 50px;
+
+}
+
+#box2 {
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 80px;
+    
+}
+
+p{
+    font-family: 'Merriweather', serif;
+    text-align: center;
+    width: 50%;
+    margin-left: 25%;
+}
+
+#paragraph {
+    font-size: 14px;
+    font-family: 'Merriweather', serif;
+    margin-left: 0%;
+    width: 100%;
+    
+}
+
+#footer{
+    font-size: 10;
+}
+
+#trump{
+    width: 50%;
+    margin-left: 25%;
+}
+
+#trump2{
+    width: 20%;
+    margin-left: 40%;
+}
