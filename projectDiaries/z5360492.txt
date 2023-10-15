@@ -20,3 +20,10 @@ This week our team mainly focused on completing sprint one and preparing for our
 We finalised the model we will be using, began making a simple frontend design, and wrote a literature review based on the recommended articles provided by the client.
 To test our model, we also ran some simple data pipelines containing LIAR dataset preprocessing, LIWC CLI connection, Google fact check tools API connection.
 We will have another meeting with the client next week to update her on our progress.
+
+Week 5
+Our demo went well and our team also completed Retrospective A during our tutorial lesson on Monday.
+We implemented new objectives to help with teamwork the following day and also had an online meeting on Friday.
+We discussed the language model we would use and issues with running LLAMA2 and will ask the client about using GPT4 instead.
+As next week is flexi week, our next meeting with the client will be in Week 7 instead.
+Our goal for next week would be for me and Danny to complete the frontend by our in-person tutorial on Monday Week 7.
