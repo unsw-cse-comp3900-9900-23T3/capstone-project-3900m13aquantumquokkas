@@ -41,3 +41,9 @@ Week5
 3. Planned next meeting for week7 Tue but to skip week6 during flex week.
 4. Completed simple data pipeline containing LIAR dataset preprocessing, LIWC CLI connection, Google fact check tools API connection. - Completed data pipeline stage, started testing multiple machine learning structures to find best performance.
 5. Planned to build skeleton frontend, literature review report and simple model structure for progressive demo A. - Completed literature review report, completed progressive demo A, have made skeleton frontend by Armani.
+
+Week6
+
+1. Found issue with LLAMA2 language model, it worked as we expected but resource-heavy, requested GPT4 API access to client - Found free language model chatbot API, going to try with this model and see if that works (as this has limitation of 1000 requests).
+2. Planned to do more research about language model use. - Checked that the model works as we expected.
+3. Completed data pipeline stage, started testing multiple machine learning structures to find best performance. - Found acceptable model with Support vector machine.
