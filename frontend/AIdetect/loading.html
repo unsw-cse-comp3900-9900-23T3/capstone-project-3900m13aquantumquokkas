@@ -8,47 +8,21 @@
 			href="./style1.css" 
 		/>
         <style>
-            textarea {
-                width: 100%;
-                height: 150px;
-                padding: 12px 20px;
-                box-sizing: border-box;
-                border: 2px solid #ccc;
-                border-radius: 4px;
-                background-color: #f8f8f8;
-                font-size: 16px;
-                resize: none;
-            }
-            button {
-                border: none;
-                color: white;
-                background-color: #FBAA60;
-                padding: 15px 32px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 16px;
-                margin: 4px 2px;
-                cursor: pointer;
-                margin-left: 100;
-                font-family: 'Merriweather', serif;
-                border-radius: 12px
+            body {
+               background-color: #f2c799;
             }
         </style>
         </head>
-                <link rel="preconnect" href="https://fonts.googleapis.com">
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-                <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
-        <body>
-            <img id="logo" src="./src/logo.png" alt="logo image">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+            <script src="loading.js" defer></script>
+            <img id="logo" src="./src/logo_transparent.png" alt="logo image">
             <div id="box1">
             <h3 id="title">Detect fake news on Twitter</h3>
-                <form>
-                    <textarea>Enter your post content here ...</textarea>
-                </form>
-                <a href="loading.html">
-                    <button type="button">Detect fake news!</button>
-                </a>
+                <p id="paragraph"> Generating your results... </p>
+                    <div class="progress-bar" style="--width: 10"
+                    data-label="Loading..."></div>
             </div>
             <div id = "box2">
                 <h3 id="title">What is TweetTruth</h3>
