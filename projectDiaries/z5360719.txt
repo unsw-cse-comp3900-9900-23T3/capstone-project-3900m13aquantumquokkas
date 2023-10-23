@@ -17,3 +17,12 @@ Week 4
 During meeting, the client gave us some datasets to use which we ran on our model. We also agreed to no longer to academic research on Twitter.
 For the Progressive Demo A, we wrote a literature review as we mostly did research, our current model, and a simple frontend design.
 We checked off the corresponding user stories for sprint 1.
+
+Week 5
+We went through our demo 1 with the tutor smoothly without issue and completed the Retrospective A right after.
+New goals have been assigned to each member of the group and meeting was arranged on Friday.
+Frontend are expected to be roughly done before Week7 tut.
+
+Week 6
+Since I had no experience with frontend before this project, I continued my online research from Week 5 and learnt fundimental skills required for html css frontend programing.
+Rowena and I built the first version of the about me and loading page. Other member's advices are taken and improved the design. More details will be discussed during Week 7 tut.
