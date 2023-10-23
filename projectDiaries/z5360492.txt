@@ -27,3 +27,10 @@ We implemented new objectives to help with teamwork the following day and also h
 We discussed the language model we would use and issues with running LLAMA2 and will ask the client about using GPT4 instead.
 As next week is flexi week, our next meeting with the client will be in Week 7 instead.
 Our goal for next week would be for me and Danny to complete the frontend by our in-person tutorial on Monday Week 7.
+
+Week 6
+We had no client meeting this week, as it is flexibility week, and I just focused on creating and editing the frontend pages. 
+I created the results loading page using html and added the progress bar using some javascript code.
+I also made changes to the style sheet and the index page so that it links to the loading page when clicking on the generate results button.
+Danny had also made the about us page and I plan to have that page available on the index page via a button click, which I can do next week before the Progressive Demo B.
+Next week we will try to link the backend to the coded frontend.
