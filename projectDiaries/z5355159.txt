@@ -47,3 +47,10 @@ Week6
 1. Found issue with LLAMA2 language model, it worked as we expected but resource-heavy, requested GPT4 API access to client - Found free language model chatbot API, going to try with this model and see if that works (as this has limitation of 1000 requests).
 2. Planned to do more research about language model use. - Checked that the model works as we expected.
 3. Completed data pipeline stage, started testing multiple machine learning structures to find best performance. - Found acceptable model with Support vector machine.
+
+Week7
+
+1. Found issue with LLAMA2 language model, it worked as we expected but resource-heavy, requested GPT4 API access to client - Found free language model chatbot API, going to try with this model and see if that works (as this has limitation of 1000 requests). - Going to have GPT4 access on 10/30 Mon.
+2. Could not have meeting with client due to her personal circumstance. Updated our progress to the client via email and short follow-up meeting on Teams. Explained issues that we are struggling with, language model access & low performance.
+3. Planned to do short literature review for the papers provided by client.
+4. Asked help to Dr. Jinho for feedback of our system.
