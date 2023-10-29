@@ -49,6 +49,13 @@
                 <a href="loading.html">
                     <button type="button">Detect fake news!</button>
                 </a>
+                <button type="button" id="detect">Backend Link</button>
+            </div>
+            <div id = "box2">
+                <h3 id="title">Temp Result</h3>
+                <p id="result">
+                    placeholder result
+                </p>
             </div>
             <div id = "box2">
                 <h3 id="title">What is TweetTruth</h3>
@@ -63,6 +70,16 @@
                 <img id= trump src="./src/donald-trump-fake-news.gif" alt="">
                 <div style="width: 200px; height: 50px;"></div>
             </div>
+
+            <script> 
+                document.getElementById("detect").addEventListener("click", function () {
+                    fetch("/out", { method: 'POST' })
+                        .then(response => response.text())
+                        .then(result => {
+                            document.getElementById("result").innerText = result;
+                        });
+                });
+            </script>
         </body>
         <hr>
         <footer>
