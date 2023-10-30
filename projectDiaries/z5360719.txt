@@ -26,3 +26,6 @@ Frontend are expected to be roughly done before Week7 tut.
 Week 6
 Since I had no experience with frontend before this project, I continued my online research from Week 5 and learnt fundimental skills required for html css frontend programing.
 Rowena and I built the first version of the about me and loading page. Other member's advices are taken and improved the design. More details will be discussed during Week 7 tut.
+
+Week 7
+Rowena and I improved the website design by implementing the loading bar as an overlay instead of an extra page, also added top navigation bar.
