@@ -3,6 +3,7 @@ function startLoading() {
     const loadingOverlay = document.getElementById("loading-overlay");
     // const loadingBar = document.getElementsByClassName("progress-bar");
     const loadingBar = document.getElementById("loading-bar");
+    const loadingBarMax = document.getElementById("loading-bar-full");
 
     // Disable the button
     loadingButton.disabled = true;
@@ -12,7 +13,7 @@ function startLoading() {
 
     // Simulate loading (you can replace this with your actual loading logic)
     const progressInterval = setInterval(function () {
-        if (loadingBar.clientWidth < loadingOverlay.clientWidth) {
+        if (loadingBar.clientWidth < loadingBarMax.clientWidth * 0.95) {
             loadingBar.style.width = (loadingBar.clientWidth + 10) + "px";
         } else {
             // Loading is complete
@@ -26,6 +27,8 @@ function startLoading() {
 
             // Reset the progress bar width
             loadingBar.style.width = "0";
+
+            window.location.href = "result.html"
         }
     }, 100); // Adjust the interval and loading duration as needed
     // setInterval(() => {

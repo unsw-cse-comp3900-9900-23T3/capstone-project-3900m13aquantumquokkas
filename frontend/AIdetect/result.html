@@ -39,6 +39,7 @@
                 <link rel="preconnect" href="https://fonts.googleapis.com">
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
                 <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <body>
             <!-- Top menu-->
             <div class="topnav">
@@ -70,8 +71,9 @@
                         </form>
                             <button id="loading-button" onclick="startLoading()">Detect fake news!</button>
                             <div id="loading-overlay">
-                                <h3 id ="title"> Loading</h3>
-                                <div id="loading-bar" data-label="Loading...">
+                                <!-- <h3 id ="title"> Loading</h3> -->
+                                <div id="loading-bar-full">
+                                    <div id="loading-bar"></div>
                                 </div>
                             </div>
                     </div>
@@ -85,4 +87,5 @@
         </footer>
         <script src="overlaymenu.js" defer></script>
         <script src="loading2.js" defer></script>
+        <script src="topnavigation.js" defer></script>
     </html>

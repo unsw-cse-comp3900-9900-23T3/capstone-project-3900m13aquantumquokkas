@@ -27,10 +27,13 @@
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <body>
             <!-- Top menu-->
-            <div class="topnav">
+            <div class="topnav" id="myTopnav">
                 <a class="active" href="index.html">Home</a>
                 <!-- <a href="#contact">Contact</a> -->
                 <a href="aboutus.html">About us</a>
+                <a href="#news">News</a>
+                <a href="#contact">Contact</a>
+                <a href="#about">About</a>
                 <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                     <i class="fa fa-bars"></i>
                 </a>
@@ -47,8 +50,9 @@
                 </a> -->
                 <button id="loading-button" onclick="startLoading()">Detect fake news!</button>
                 <div id="loading-overlay">
-                    <h3 id ="title"> Loading</h3>
-                    <div id="loading-bar">
+                    <!-- <h3 id ="title"> Loading</h3> -->
+                    <div id="loading-bar-full">
+                        <div id="loading-bar" data-label="Loading..."></div>
                     </div>
                 </div>
             </div>
@@ -73,4 +77,5 @@
         </footer>
         <script src="overlaymenu.js" defer></script>
         <script src="loading2.js" defer></script>
+        <script src="topnavigation.js" defer></script>
     </html>

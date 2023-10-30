@@ -239,10 +239,21 @@ p{
     background-color: lightblue;
     transition: width 0.3s;
     padding: 1em;
-    position: relative;
-    height: 1.0em;
+    height: 0.5em;
     border-radius: 1.5em;
-    color: white;
+    color: black;
     font-family: 'Merriweather', serif;
     letter-spacing: 2px;
+}
+
+#loading-bar-full {
+  width: 100%;
+  background-color: white;
+  padding: 1em;
+  height: 1.0em;
+  border-radius: 1.5em;
+  font-family: 'Merriweather', serif;
+  letter-spacing: 2px;
+  display: flex; /* Use flex to center the loading bar horizontally */
+  align-items: center;
 }
