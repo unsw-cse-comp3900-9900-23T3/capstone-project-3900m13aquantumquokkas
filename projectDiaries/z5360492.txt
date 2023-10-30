@@ -34,3 +34,11 @@ I created the results loading page using html and added the progress bar using s
 I also made changes to the style sheet and the index page so that it links to the loading page when clicking on the generate results button.
 Danny had also made the about us page and I plan to have that page available on the index page via a button click, which I can do next week before the Progressive Demo B.
 Next week we will try to link the backend to the coded frontend.
+
+Week 7
+After realising the issue with using LLAMA2, we found the chatbot API to be free and usable. We are now going to try to use this model and also later request access to GPT4 at the next client meeting next Tuesday.
+We did not have a meeting with the client this week so we sent an email with updates from our end instead.
+We also asked for Dr Jinho to review our system with feedback and tips.
+Aside from that, we managed to improve the home page of our frontend webpage, created an index at the top, linked in the about us page, and changed the loading page into an overlay of the loading bar.
+Connection with backend has been made, but will need to modify output from backend into an acceptable format.
+We have now satisfied all the tasks on jira for this sprint.
