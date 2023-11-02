@@ -44,7 +44,7 @@
             <div id="box1">
             <h3 id="title">Detect fake news on Twitter</h3>
                 <form>
-                    <textarea>Enter your post content here ...</textarea>
+                    <textarea id = "user_input">Enter your post content here ...</textarea>
                 </form>
                 <a href="loading.html">
                     <button type="button">Detect fake news!</button>
@@ -73,7 +73,11 @@
 
             <script> 
                 document.getElementById("detect").addEventListener("click", function () {
-                    fetch("/out", { method: 'POST' })
+                    const userInput = document.getElementById("user_input").value;
+                    fetch("/out", { 
+                        method: 'POST', 
+                        body: JSON.stringify({user_input: userInput})
+                    })
                         .then(response => response.text())
                         .then(result => {
                             document.getElementById("result").innerText = result;

@@ -1,3 +1,4 @@
 # output from backend
-def out(): 
+def out(text):
+    print(text) 
     return "Hello World"
