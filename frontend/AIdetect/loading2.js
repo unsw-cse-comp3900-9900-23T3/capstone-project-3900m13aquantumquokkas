@@ -30,7 +30,7 @@ function startLoading() {
 
             window.location.href = "result.html"
         }
-    }, 100); // Adjust the interval and loading duration as needed
+    }, 10); // Adjust the interval and loading duration as needed
     // setInterval(() => {
     //     const computedStyle = getComputedStyle(loadingBar)
     //     const width = parseFloat(computedStyle.getPropertyValue('--width')) || 0
