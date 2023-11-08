@@ -16,13 +16,20 @@ import pandas as pd
 import json
 import requests
 import openai
+import textstat
+import nltk
+import sys
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+from textblob import TextBlob
 
 
 # Our system class contains model, scaler, API key, and statistic results from analysis
 class Backend_system:
     def __init__(self):
         # Load pre trained model
-        self.loaded_model = joblib.load("svm_model.pkl")
+        self.loaded_model = joblib.load("logistic_regression.pkl")
         # Load pre trained model
         self.loaded_scaler = joblib.load("standard_scaler.pkl")
         # API key to OpenAI chatbot is stored in separate txt file.
@@ -84,13 +91,15 @@ def scale_result(pd_dataframe, loaded_scaler):
     with open("columns_to_scale", "r") as f:
         columns_to_scale = [line.rstrip() for line in f.readlines()]
 
-    loaded_scaler.transform(pd_dataframe[columns_to_scale])
+    pd_dataframe[columns_to_scale] = loaded_scaler.transform(
+        pd_dataframe[columns_to_scale]
+    )
 
     return pd_dataframe
 
 
 # Model tries to detect probability if the given sentence is fake news
-def prediction(pd_dataframe, loaded_model):
+def model_prediction(pd_dataframe, loaded_model):
     columns_to_predict = []
 
     # Load the list of sorted columns used for training
@@ -98,8 +107,9 @@ def prediction(pd_dataframe, loaded_model):
         columns_to_predict = [line.rstrip() for line in f.readlines()]
 
     probability = loaded_model.predict_proba(pd_dataframe[columns_to_predict])
+    prediction = loaded_model.predict(pd_dataframe[columns_to_predict])
 
-    return probability
+    return (prediction[0], probability[0])
 
 
 # Generate short query to be used with Google fact check tools API
@@ -168,7 +178,7 @@ def google_fact_check_tool(query):
 
 
 # Generate explanation by summing up all related information
-def explaination_generation(sentence, probability, resource, analysis):
+def explaination_generation(sentence, prediction, probability, resource, analysis):
     prompt = None
     # Check if we could find any reliable source, and result if any
     rating = extract_textual_rating(resource)
@@ -218,27 +228,50 @@ def explaination_generation(sentence, probability, resource, analysis):
         ]
     # We could not find the reliable source so that tries to provide best guess about the given sentence using our model
     else:
-        prompt = [
-            {
-                "role": "system",
-                "content": """
-                You will evaluate the truthworthy of given article provided by an user based on following features. 
-                LIWC analysis result, Probability and prediction result from LIWC based classification model.
-                This sentence was not found on Google fact check tool API.
-                Prioritise features as following order, LIWC analysis result, and Probability and prediction result.
-                Assume your user could be a person who does not have any related background knowledge, and provide very short explanation including reasoning and assumptions with easy languages.
-                Please format your response as below for readability.
+        if probability[prediction] > 0.7:
+            prompt = [
+                {
+                    "role": "system",
+                    "content": f"""
+                    You will evaluate the truthworthy of given article provided by an user based on following features. 
+                    LIWC analysis result, Probability and prediction result from LIWC based classification model.
+                    This sentence was not found on Google fact check tool API.
+                    Prioritise features as following order, LIWC analysis result, and Probability and prediction result.
+                    Assume your user could be a person who does not have any related background knowledge, and provide very short explanation including reasoning and assumptions with easy languages.
+                    Please format your response as below for readability.
 
-                Format:
-                Fact check result from Google database: No result
-                Explanation: "Your explanation here"
-                """,
-            },
-            {
-                "role": "user",
-                "content": f"""Article: {sentence}, probability of fake: {probability[0][0]:.4f}, analysis: {analysis}""",
-            },
-        ]
+                    Format:
+                    Fact check result from Google database: No result
+                    Model prediction result: probability of {"fake" if prediction == 0 else "true"}: {probability[prediction]:.3f}
+                    Explanation: "Your explanation here"
+                    """,
+                },
+                {
+                    "role": "user",
+                    "content": f"""Article: {sentence}, probability of {"fake" if prediction == 0 else "true"}: {probability[prediction]:.3f}, analysis: {analysis}""",
+                },
+            ]
+        else:
+            prompt = [
+                {
+                    "role": "system",
+                    "content": """
+                    You will evaluate the truthworthy of given article provided by an user based on following features. 
+                    LIWC analysis result, Probability and prediction result from LIWC based classification model.
+                    This sentence was not found on Google fact check tool API, and our classification model is not certain with their prediction result.
+                    Assume your user could be a person who does not have any related background knowledge, and provide very short explanation including reasoning and assumptions with easy languages.
+                    Please format your response as below for readability.
+
+                    Format:
+                    Fact check result from Google database: No result
+                    Explanation: "Your explanation here"
+                    """,
+                },
+                {
+                    "role": "user",
+                    "content": f"""Article: {sentence}, analysis: {analysis}""",
+                },
+            ]
 
     return ask_GPT(prompt)
 
@@ -337,30 +370,125 @@ def LIWC_analysis(pd_dataframe, system):
     return analysis_result
 
 
+def sentiment_analysis(pd_dataframe, sentence):
+    # Caculate sentiment analysis scores with Textblob library, add them to the dataframe
+    pd_dataframe["Polarity_txb"] = float(TextBlob(sentence).sentiment.polarity)
+    pd_dataframe["Subjectivity_txb"] = float(TextBlob(sentence).sentiment.subjectivity)
+
+    # Caculate sentiment analysis scores with Vader library, add them to the dataframe
+    analyzer = SentimentIntensityAnalyzer()
+    pd_dataframe["vader_pos"] = float(analyzer.polarity_scores(sentence)["pos"])
+    pd_dataframe["vader_neu"] = float(analyzer.polarity_scores(sentence)["neu"])
+    pd_dataframe["vader_neg"] = float(analyzer.polarity_scores(sentence)["neg"])
+    pd_dataframe["vader_comp"] = float(analyzer.polarity_scores(sentence)["compound"])
+
+    # Tokenise/clean statements into tokens, count the common words each in fake and true dataset
+    nltk.download("punkt")
+    nltk.download("stopwords")
+    stop_words = set(stopwords.words("english"))
+
+    # Common words will only be extracted from training dataset to prevent target exposure
+    pd_dataframe["clean_text"] = sentence.lower().replace(r"[^\w\s]+", " ")
+    pd_dataframe["tokens"] = pd_dataframe["clean_text"].apply(word_tokenize)
+    pd_dataframe["filtered_tokens"] = pd_dataframe["tokens"].apply(
+        lambda tokens: [w for w in tokens if not w in stop_words]
+    )
+
+    only_common_in_fake_with_prob = []
+    with open("common_in_fake.txt") as f:
+        only_common_in_fake_with_prob = [
+            (line.rstrip().split()[0], float(line.rstrip().split()[1]))
+            for line in f.readlines()
+        ]
+
+    only_common_in_true_with_prob = []
+    with open("common_in_true.txt") as f:
+        only_common_in_true_with_prob = [
+            (line.rstrip().split()[0], float(line.rstrip().split()[1]))
+            for line in f.readlines()
+        ]
+
+    # Add common words score/existance to the dataframe
+    for column in only_common_in_fake_with_prob:
+        pd_dataframe[column[0]] = [
+            column[1] if column[0] in text else 0
+            for text in pd_dataframe["filtered_tokens"]
+        ]
+    pd_dataframe["common_words_score_fake"] = [
+        sum(
+            [
+                tuple[1]
+                for tuple in only_common_in_fake_with_prob
+                if tuple[0] in pd_dataframe["filtered_tokens"]
+            ]
+        )
+    ]
+
+    for column in only_common_in_true_with_prob:
+        pd_dataframe[column[0]] = [
+            column[1] if column[0] in text else 0
+            for text in pd_dataframe["filtered_tokens"]
+        ]
+    pd_dataframe["common_words_score_true"] = [
+        sum([tuple[1] for tuple in only_common_in_true_with_prob if tuple[0] in text])
+        for text in pd_dataframe["filtered_tokens"]
+    ]
+
+    pd_dataframe["flesch_reading_ease"] = textstat.flesch_reading_ease(sentence)
+    pd_dataframe["flesch_kincaid_grade"] = textstat.flesch_kincaid_grade(sentence)
+    pd_dataframe["gunning_fog"] = textstat.gunning_fog(sentence)
+    pd_dataframe["smog_index"] = textstat.smog_index(sentence)
+    pd_dataframe["ari"] = textstat.automated_readability_index(sentence)
+    pd_dataframe["coleman_liau_index"] = textstat.coleman_liau_index(sentence)
+    pd_dataframe["linsear_write"] = textstat.linsear_write_formula(sentence)
+    pd_dataframe["dale_chall"] = textstat.dale_chall_readability_score(sentence)
+
+    return pd_dataframe
+
+
 def detect(input):
     # System initialisation
     system = Backend_system()
+    # Log all errors while processing
+    sys.stderr = open("error_log.txt", "w")
     # Process article with LIWC software
     pd_dataframe = LIWC_process(input)
     print("LIWC processed")
+    print(pd_dataframe.iloc[0])
     # Statistical analysis of LIWC result
     analysis = LIWC_analysis(pd_dataframe, system)
     print("Analysis conducted")
+    print(analysis)
+    # Sentiment analysis
+    pd_dataframe = sentiment_analysis(pd_dataframe, input)
+    print(pd_dataframe.iloc[0])
     # Scale LIWC result
     pd_dataframe = scale_result(pd_dataframe, system.loaded_scaler)
     print("Scale conducted")
+    print(pd_dataframe.iloc[0])
     # Predict fake news with pre-trained model
-    probability = prediction(pd_dataframe, system.loaded_model)
+    prediction, probability = model_prediction(pd_dataframe, system.loaded_model)
     print("Prediction conducted")
+    print(prediction, probability)
+    print(prediction == 1)
+    print(probability[prediction])
     # Generate query with OpenAI API
     query = query_generation(input)
     print("Query generated")
+    print(query)
     # Search related source with Google API
     resource = google_fact_check_tool(query)
     print("Source retrieved")
+    print(resource)
     # Generate user friendly explanation
-    explanation = explaination_generation(input, probability, resource, analysis)
+    explanation = explaination_generation(
+        input, prediction, probability, resource, analysis
+    )
     print("Explaination generated")
+
+    # Close stderr redirection
+    sys.stderr.close()
+    sys.stderr = sys.__stderr__
 
     return explanation
 
