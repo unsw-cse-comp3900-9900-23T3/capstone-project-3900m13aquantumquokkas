@@ -34,3 +34,8 @@ Week 5:
 Week 7: 
 -> More literary review based on papers client sent us this week 
 -> Set up http server for connection between frontend and backend (using a temp output file because backend is not finished yet)
+
+Weel 8: 
+-> Investigated other methods of classification
+-> In particular, looking into various methods of cross validation. kfold and stratified kfold both produced averages that were below our margin, 44% and 52% respectively
+-> Conducted demo in lab and then led discussion on retrospective + assigned tasks for the next week. 
