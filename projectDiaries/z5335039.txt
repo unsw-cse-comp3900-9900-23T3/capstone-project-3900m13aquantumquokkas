@@ -17,3 +17,11 @@ week3:
 week4:
 -did the research on how to connect the frontend interface with figma
 -arrage the group meeting on Friday morning and have a fronend group meeting on Saturday morning
+
+week5:
+-check out progression for demo A with tutor
+-assign the following task for demo B
+-wait for Row and Denny to complete thier frontend part and combine the frontend and backend part together
+
+week6:
+-wait for Row and Denny to complete thier frontend part and combine the frontend and backend part together
