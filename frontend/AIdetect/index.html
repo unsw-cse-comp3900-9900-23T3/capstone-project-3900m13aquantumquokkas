@@ -43,11 +43,15 @@
             <div id="box1">
             <h3 id="title">Detect fake news on Twitter</h3>
                 <form>
-                    <textarea>Enter your post content here ...</textarea>
+                    <textarea id = "user_input">Enter your post content here ...</textarea>
                 </form>
-                <!-- <a href="loading.html">
-                    <button type="button">Detect fake news!</button>
-                </a> -->
+               
+                </div>
+                <div id = "box2">
+                    <h3 id="title">Result</h3>
+                    <p id="result">
+                        
+                    </p>
                 <button id="loading-button" onclick="startLoading()">Detect fake news!</button>
                 <div id="loading-overlay">
                     <!-- <h3 id ="title"> Loading</h3> -->
@@ -69,6 +73,20 @@
                 <img id= trump src="./src/donald-trump-fake-news.gif" alt="">
                 <div style="width: 200px; height: 50px;"></div>
             </div>
+
+            <script> 
+                document.getElementById("loading-button").addEventListener("click", function () {
+                    const userInput = document.getElementById("user_input").value;
+                    fetch("/out", { 
+                        method: 'POST', 
+                        body: JSON.stringify({user_input: userInput})
+                    })
+                        .then(response => response.text())
+                        .then(result => {
+                            document.getElementById("result").innerText = result;
+                        });
+                });
+            </script>
         </body>
         <hr>
         <footer>
