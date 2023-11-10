@@ -139,9 +139,11 @@ def query_generation(sentence):
     # Use API cahtbot to generate query
     answer = ask_GPT(prompt)
     # Extract query from the generated response
-    query = extract_query_from_content(answer)
-
-    return query.strip('"')
+    if answer != "":
+        query = extract_query_from_content(answer)
+        return query.strip('"')
+    else:
+        return ""
 
 
 # Helper function to extract query from the generated response
@@ -184,7 +186,7 @@ def explaination_generation(sentence, prediction, probability, resource, analysi
     rating = extract_textual_rating(resource)
 
     # We found the reliable source claiming that this is fake news
-    if rating == "False":
+    if rating == "False" or "Distorts the Facts":
         prompt = [
             {
                 "role": "system",
@@ -206,7 +208,7 @@ def explaination_generation(sentence, prediction, probability, resource, analysi
             },
         ]
     # We found the reliable source claiming that this is true news
-    elif rating == "True":
+    elif rating == "True" or "Half True" or "Exagerated":
         prompt = [
             {
                 "role": "system",
@@ -282,9 +284,12 @@ def ask_GPT(prompt):
 
     try:
         response = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=prompt)
+        result = response.choices[0].message.content
+        return result
     except Exception as e:
         print(f"OpenAI API error occured, error: {e}")
-    return response.choices[0].message.content
+
+    return "Language model errror"
 
 
 # LIWC analysis comparing current sentence with statistics from training dataset
