@@ -54,3 +54,10 @@ Week7
 2. Could not have meeting with client due to her personal circumstance. Updated our progress to the client via email and short follow-up meeting on Teams. Explained issues that we are struggling with, language model access & low performance.
 3. Planned to do short literature review for the papers provided by client.
 4. Asked help to Dr. Jinho for feedback of our system.
+
+Week8
+
+1. Going to have GPT4 access on 10/30 Mon. - Gained access to GPT4 API by client.
+2. Completed code for backend and frontend, ready for connection.
+3. Could not have meeting with client due to her personal circumstance. 
+4. Planned to do short literature review for the papers provided by client. - Tried new approaches, models, and trainings. Achieved slightly better result (from 60% to 63~64%).
