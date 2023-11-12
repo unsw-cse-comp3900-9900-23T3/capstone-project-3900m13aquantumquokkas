@@ -34,4 +34,4 @@ with socketserver.TCPServer(("", port), Handler) as httpd:
     httpd.serve_forever()
 
 
-# to run, type python server.py and then open up http://localhost:8000/index.html
+# to run, type python server.py and then open up http://localhost:8000/frontend/index.html

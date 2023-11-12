@@ -43,7 +43,7 @@ logistic_regression.pkl, standard_scaler.pkl are detection model and scaler used
 # Running the application
 
 1. Start server with python server.py or python3 server.py if in mac environment.  
-2. Type http://localhost:8000/index.html on your browser to access the website, if you would like to access from other device, change the address with IP address running the server.py.  
+2. Type http://localhost:8000/frontend/index.html on your browser to access the website, if you would like to access from other device, change the address with IP address running the server.py.  
 3. Type the text on the blank, and click detect fake news button.  
 4. The result will be shown shortly, execution time can vary depends on the length of input text, network status, and OpenAI API status.  
 
