@@ -35,16 +35,17 @@
             </div>
 
             <img id="logo" src="./images/logo.png" alt="logo image">
-            <div id = "HiddenBox", class="result-section">
-                <h3 id="resultTitle">Result</h3>
-                <p id="result"></p>
-            </div>
+            
             <div id="box1">
             <h3 id="outputTitle" 
                 style = "font-family: 'Merriweather', serif;
                     text-align: center;
                     font-size: 25;"> </h3>
+            <div> 
             <p id="outputText"> </p>
+            </div>
+            <hr id="outputLine" style="opacity: 0;">            
+
             <h3 id="title">Detect fake news on Twitter</h3>
                 <form>
                     <textarea id = "user_input">Enter your post content here ...</textarea>
@@ -54,14 +55,19 @@
                 </div>
             
                 
-                <div id="loading-overlay">
+                <div id="loading-overlay" >
+                    <h3 id="loadingTitle">Loading...</h3>
                     <div id="loading-bar-full">
-                        <div id="loading-bar" data-label="Loading..."></div>
+                        <div id="loading-bar" data-label="Loading...">
+                                                      
+                        </div>
                     </div>
                 </div>   
             </div>
+            <div style="width: 200px; height: 40px;"></div>
 
-
+            <hr>            
+            
             <div id = "box2">
                 <h3 id="title">What is TweetTruth</h3>
                 <p id="paragraph">
@@ -84,6 +90,7 @@
                         .then(result => {
                             document.getElementById("outputText").innerText = result;
                             document.getElementById("outputTitle").innerText = "Result:";
+                            document.getElementById("outputLine").style = "opacity: 100";
                         });
                 });
             </script>
