@@ -257,3 +257,7 @@ p{
   display: flex; /* Use flex to center the loading bar horizontally */
   align-items: center;
 }
+
+#HiddenBox {
+  display:none;
+}

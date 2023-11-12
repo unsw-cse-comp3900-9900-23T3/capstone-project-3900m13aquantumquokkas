@@ -28,7 +28,7 @@ function startLoading() {
             // Reset the progress bar width
             loadingBar.style.width = "0";
 
-            window.location.href = "result.html"
+            //window.location.href = "result.html"
         }
     }, 10); // Adjust the interval and loading duration as needed
     // setInterval(() => {

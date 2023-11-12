@@ -26,40 +26,34 @@
                 <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <body>
-            <!-- Top menu-->
             <div class="topnav" id="myTopnav">
                 <a class="active" href="index.html">Home</a>
-                <!-- <a href="#contact">Contact</a> -->
                 <a href="aboutus.html">About us</a>
-                <!-- <a href="#news">News</a>
-                <a href="#contact">Contact</a>
-                <a href="#about">About</a> -->
                 <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                     <i class="fa fa-bars"></i>
                 </a>
             </div>
 
             <img id="logo" src="./src/logo.png" alt="logo image">
+            <div id = "HiddenBox", class="result-section">
+                <h3 id="resultTitle">Result</h3>
+                <p id="result"></p>
+            </div>
             <div id="box1">
             <h3 id="title">Detect fake news on Twitter</h3>
                 <form>
                     <textarea id = "user_input">Enter your post content here ...</textarea>
                 </form>
-               
-                </div>
-                <div id = "box2">
-                    <h3 id="title">Result</h3>
-                    <p id="result">
-                        
-                    </p>
-                <button id="loading-button" onclick="startLoading()">Detect fake news!</button>
+
+                <button id="loading-button" onclick="startLoading(); processText()">Detect fake news!</button>
                 <div id="loading-overlay">
-                    <!-- <h3 id ="title"> Loading</h3> -->
                     <div id="loading-bar-full">
                         <div id="loading-bar" data-label="Loading..."></div>
                     </div>
-                </div>
+                </div>   
             </div>
+
+
             <div id = "box2">
                 <h3 id="title">What is TweetTruth</h3>
                 <p id="paragraph">
@@ -75,7 +69,7 @@
             </div>
 
             <script> 
-                document.getElementById("loading-button").addEventListener("click", function () {
+                document.getElementById("loading-button").addEventListener("click", function processText() {
                     const userInput = document.getElementById("user_input").value;
                     fetch("/out", { 
                         method: 'POST', 
@@ -83,10 +77,23 @@
                     })
                         .then(response => response.text())
                         .then(result => {
-                            document.getElementById("result").innerText = result;
-                        });
+
+                            console.log(result);
+                            
+                            const resultTitle = document.getElementById("resultTitle");
+                            const resultParagraph = document.getElementById("result");
+
+                            resultParagraph.innerText = result;
+
+                            // Update the content of <h3> based on the result
+                            resultTitle.innerText = result === "real" ? "This is real news" : "This is fake news";
+
+                            // Show the result section
+                            document.getElementById("HiddenBox").style.display = "block";
+                        })
                 });
             </script>
+
         </body>
         <hr>
         <footer>
