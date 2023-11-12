@@ -35,7 +35,17 @@ Week 7:
 -> More literary review based on papers client sent us this week 
 -> Set up http server for connection between frontend and backend (using a temp output file because backend is not finished yet)
 
-Weel 8: 
+Week 8: 
 -> Investigated other methods of classification
 -> In particular, looking into various methods of cross validation. kfold and stratified kfold both produced averages that were below our margin, 44% and 52% respectively
 -> Conducted demo in lab and then led discussion on retrospective + assigned tasks for the next week. 
+-> Fixed backend-frontend interface template file to actually take input from webpage into account. 
+
+Week 9: 
+-> Worked with frontend to finalise webpage. Gave feedback on design, as well as helped solve issues regarding the display of the result. 
+-> Fixed webpage css. 
+-> Delegated tasks for final presentation and report, as well as set a timeine for getting the work done. 
+-> Planned two meetings, one as a check-in to get everyone on the same page / to update progress, and another to go over the presentation together as a group. 
+-> Worked on merging branches into main - This was done via me streaming the code and everyone watching + code reviewing together. 
+-> Fixed readme file
+-> Fixed integration bugs while screensharing with the group. All members attended this meeting 

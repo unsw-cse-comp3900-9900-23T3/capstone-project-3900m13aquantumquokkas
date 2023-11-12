@@ -34,18 +34,26 @@
                 </a>
             </div>
 
-            <img id="logo" src="./src/logo.png" alt="logo image">
+            <img id="logo" src="./images/logo.png" alt="logo image">
             <div id = "HiddenBox", class="result-section">
                 <h3 id="resultTitle">Result</h3>
                 <p id="result"></p>
             </div>
             <div id="box1">
+            <h3 id="outputTitle" 
+                style = "font-family: 'Merriweather', serif;
+                    text-align: center;
+                    font-size: 25;"> </h3>
+            <p id="outputText"> </p>
             <h3 id="title">Detect fake news on Twitter</h3>
                 <form>
                     <textarea id = "user_input">Enter your post content here ...</textarea>
                 </form>
-
+                <div id = "load-button"> 
                 <button id="loading-button" onclick="startLoading(); processText()">Detect fake news!</button>
+                </div>
+            
+                
                 <div id="loading-overlay">
                     <div id="loading-bar-full">
                         <div id="loading-bar" data-label="Loading..."></div>
@@ -57,40 +65,26 @@
             <div id = "box2">
                 <h3 id="title">What is TweetTruth</h3>
                 <p id="paragraph">
-                    Welcome to TruthGuard AI, your trusted ally in the battle against misinformation! Our cutting-edge website harnesses the power of artificial intelligence to provide you with accurate and reliable results when it comes to identifying fake news.
+                    Welcome to TweetTruth, your trusted ally in the battle against misinformation! Our cutting-edge website harnesses the power of artificial intelligence to provide you with accurate and reliable results when it comes to identifying fake news.
                     <p id="paragraph">With the rapid spread of false information on the internet, 
                         it's becoming increasingly challenging to separate fact from fiction. 
-                        That's where TruthGuard AI steps in. </p>
+                        That's where TweetTruth steps in. </p>
                     <p id="paragraph"> Our sophisticated AI algorithms have been trained on vast datasets of credible and deceptive news articles to develop a keen understanding of the telltale signs of misinformation.</p>
                 </p>
                 <div style="width: 200px; height: 10px;"></div>
-                <img id= trump src="./src/donald-trump-fake-news.gif" alt="">
+                <img id= trump src="./images/donald-trump-fake-news.gif" alt="">
                 <div style="width: 200px; height: 50px;"></div>
             </div>
-
+            
             <script> 
-                document.getElementById("loading-button").addEventListener("click", function processText() {
+                document.getElementById("loading-button").addEventListener("click", function () {
                     const userInput = document.getElementById("user_input").value;
-                    fetch("/out", { 
-                        method: 'POST', 
-                        body: JSON.stringify({user_input: userInput})
-                    })
+                    fetch("/out", { method: 'POST', body: JSON.stringify({user_input: userInput}) })
                         .then(response => response.text())
                         .then(result => {
-
-                            console.log(result);
-                            
-                            const resultTitle = document.getElementById("resultTitle");
-                            const resultParagraph = document.getElementById("result");
-
-                            resultParagraph.innerText = result;
-
-                            // Update the content of <h3> based on the result
-                            resultTitle.innerText = result === "real" ? "This is real news" : "This is fake news";
-
-                            // Show the result section
-                            document.getElementById("HiddenBox").style.display = "block";
-                        })
+                            document.getElementById("outputText").innerText = result;
+                            document.getElementById("outputTitle").innerText = "Result:";
+                        });
                 });
             </script>
 
