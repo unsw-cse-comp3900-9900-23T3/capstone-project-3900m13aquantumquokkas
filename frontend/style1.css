@@ -1,5 +1,6 @@
 #load-button {
-  margin-left: 28%;
+  /* margin-left: 28%; */
+  text-align: center;
 }
 
 #logo {
@@ -27,6 +28,20 @@
     font-size: 30px;
 }
 
+#outputText {
+  margin: 0%;
+  overflow-wrap: break-word;
+  text-align: left;
+  width: 100%;
+}
+
+#loadingTitle{
+  font-family: 'Merriweather', serif;
+  text-align: center;
+  font-size: 30px;
+  color: white;
+}
+
 
 #box1 {
     width: 50%;
@@ -44,7 +59,7 @@
 
 p{
     font-family: 'Merriweather', serif;
-    text-align: center;
+    text-align: left;
     width: 50%;
     margin-left: 25%;
 }
@@ -223,7 +238,7 @@ p{
     text-align: center;
     display: inline-block;
     margin: 4px 2px;
-    margin-left: 100;
+    margin-left: 0;
     font-family: 'Merriweather', serif;
     border-radius: 12px
 }
@@ -236,7 +251,8 @@ p{
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: #FBAA60;
+    opacity: 80%;
     z-index: 999;
     align-items: center;
     justify-content: center;

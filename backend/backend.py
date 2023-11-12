@@ -23,20 +23,22 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from textblob import TextBlob
+import os
 
 
 # Our system class contains model, scaler, API key, and statistic results from analysis
 class Backend_system:
     def __init__(self):
         # Load pre trained model
-        self.loaded_model = joblib.load("backend\logistic_regression.pkl")
+        
+        self.loaded_model = joblib.load(os.path.join("backend", "logistic_regression.pkl"))
         # Load pre trained model
-        self.loaded_scaler = joblib.load("backend\standard_scaler.pkl")
+        self.loaded_scaler = joblib.load(os.path.join("backend", "standard_scaler.pkl"))
         # API key to OpenAI chatbot is stored in separate txt file.
-        with open("backend\API_key.txt", "r") as f:
+        with open(os.path.join("backend", "API_key.txt"), "r") as f:
             openai.api_key = f.readline().rstrip()
         # Average score for fake news is stored in separate txt file.
-        with open("backend\LIWC_average_fake.txt", "r") as f:
+        with open(os.path.join("backend", "LIWC_average_fake.txt"), "r") as f:
             self.averages = {
                 line.rstrip().split(":")[0]: line.rstrip().split(":")[1]
                 for line in f.readlines()
@@ -88,7 +90,7 @@ def scale_result(pd_dataframe, loaded_scaler):
     columns_to_scale = None
 
     # Load the list of sorted columns used for training
-    with open("backend\columns_to_scale", "r") as f:
+    with open(os.path.join("backend", "columns_to_scale"), "r") as f:
         columns_to_scale = [line.rstrip() for line in f.readlines()]
 
     pd_dataframe[columns_to_scale] = loaded_scaler.transform(
@@ -103,7 +105,7 @@ def model_prediction(pd_dataframe, loaded_model):
     columns_to_predict = []
 
     # Load the list of sorted columns used for training
-    with open("backend\columns_to_predict", "r") as f:
+    with open(os.path.join("backend", "columns_to_predict"), "r") as f:
         columns_to_predict = [line.rstrip() for line in f.readlines()]
 
     probability = loaded_model.predict_proba(pd_dataframe[columns_to_predict])
@@ -400,14 +402,14 @@ def sentiment_analysis(pd_dataframe, sentence):
     )
 
     only_common_in_fake_with_prob = []
-    with open("backend\common_in_fake.txt") as f:
+    with open(os.path.join("backend", "common_in_fake.txt")) as f:
         only_common_in_fake_with_prob = [
             (line.rstrip().split()[0], float(line.rstrip().split()[1]))
             for line in f.readlines()
         ]
 
     only_common_in_true_with_prob = []
-    with open("backend\common_in_true.txt") as f:
+    with open(os.path.join("backend", "common_in_true.txt")) as f:
         only_common_in_true_with_prob = [
             (line.rstrip().split()[0], float(line.rstrip().split()[1]))
             for line in f.readlines()
@@ -456,7 +458,7 @@ def detect(input):
     # System initialisation
     system = Backend_system()
     # Log all errors while processing
-    sys.stderr = open("backend\error_log.txt", "w")
+    sys.stderr = open(os.path.join("backend", "error_log.txt"), "w")
     # Process article with LIWC software
     pd_dataframe = LIWC_process(input)
     print("LIWC processed")
