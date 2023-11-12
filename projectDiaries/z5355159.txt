@@ -61,3 +61,8 @@ Week8
 2. Completed code for backend and frontend, ready for connection.
 3. Could not have meeting with client due to her personal circumstance. 
 4. Planned to do short literature review for the papers provided by client. - Tried new approaches, models, and trainings. Achieved slightly better result (from 60% to 63~64%).
+
+Week9
+
+1. Added new approaches, models to the system. Utimately, the model shows 65% score, and the system has 74%.
+2. Connected / tested backend and frontend.
