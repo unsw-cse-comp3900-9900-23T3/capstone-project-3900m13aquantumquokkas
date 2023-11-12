@@ -1,3 +1,7 @@
+#load-button {
+  margin-left: 28%;
+}
+
 #logo {
   width: 30%;
   width: 50%;
@@ -9,6 +13,12 @@
     text-align: center;
     font-size: 25;
     
+}
+
+#outputTitle {
+  font-family: 'Merriweather', serif;
+  text-align: center;
+  font-size: 25;  
 }
 
 #resulttitle{
