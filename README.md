@@ -33,11 +33,19 @@ Please note that currently our system uses GPT-3.5 turbo with OpenAI API, using 
 
 # File explanation
 
+* server.py is the main file to run - this starts up a http server.
+
 backend contains fake news detection systems, model, training/testing files, and other files required for system.  
-backend.py is the file contains every component used for detection, will be called by server to generate explanation.  
-backend_for_system_test.ipynb, data_pipeline.ipynb, raw_Google_API.ipynb contains training/testing of models.  
-API_key.txt, columns_to_predict, columns_to_scale, common_in_fake.txt, common_in_true.txt, LIWC_average_fake.txt are files required for system.  
-logistic_regression.pkl, standard_scaler.pkl are detection model and scaler used for system.  
+* backend.py is the file contains every component used for detection, will be called by server to generate explanation.  
+* backend_for_system_test.ipynb, data_pipeline.ipynb, raw_Google_API.ipynb contains training/testing of models.  
+* API_key.txt, columns_to_predict, columns_to_scale, common_in_fake.txt, common_in_true.txt, LIWC_average_fake.txt are files required for system.  
+* logistic_regression.pkl, standard_scaler.pkl are detection model and scaler used for system.  
+
+frontend contains files for our website.
+* index.html and aboutus.html are the pages
+* style.css contains styling for the pages
+* loading.js contains the script for the loading bar
+* images contains our images used for the website
 
 
 # Running the application
