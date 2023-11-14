@@ -1,32 +1,28 @@
 import http.server
 import socketserver
-#from out import out
 from backend.backend import detect
 import json
 import os
 
-# directory = "frontend"
-
 port = 8000
 
-# os.chdir(directory)
 
 class MyHandler(http.server.SimpleHTTPRequestHandler):
     def do_POST(self):
-        if self.path == '/out':
-            content_length = int(self.headers['Content-Length'])
+        if self.path == "/out":
+            content_length = int(self.headers["Content-Length"])
             post_data = self.rfile.read(content_length)
-            data = json.loads(post_data.decode('utf-8'))
+            data = json.loads(post_data.decode("utf-8"))
 
             user_input = data.get("user_input")
-            print (user_input)
+            print(user_input)
             self.send_response(200)
-            self.send_header('Content-type', 'text/html')
+            self.send_header("Content-type", "text/html")
             self.end_headers()
 
-            self.wfile.write(detect(user_input).encode('utf-8'))
-            # self.wfile.write(user_input.encode('utf-8'))
-         
+            self.wfile.write(detect(user_input).encode("utf-8"))
+
+
 Handler = MyHandler
 
 with socketserver.TCPServer(("", port), Handler) as httpd:
