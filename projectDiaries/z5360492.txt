@@ -42,3 +42,17 @@ We also asked for Dr Jinho to review our system with feedback and tips.
 Aside from that, we managed to improve the home page of our frontend webpage, created an index at the top, linked in the about us page, and changed the loading page into an overlay of the loading bar.
 Connection with backend has been made, but will need to modify output from backend into an acceptable format.
 We have now satisfied all the tasks on jira for this sprint.
+
+Week 8
+This week our client was able to grant us access to GPT4 API, but our meeting with her was cancelled this week due to her busy schedule.
+We have been further finalising our code on the frontend for better accessability and easier connection with backend. A simple output file has been made and utilised for the linkake of the backend.
+The current issue is redirecting the backend output to our results page as it is currently outputting to the index page.
+We tried new approaches, models, and training for the backend, and finally achieved slightly better result (from 60% to 63~64%).
+
+Week 9
+This week our team mainly focused on our final deliverable. We created slides on Canva, wrote our respective speeches, and practiced together online and in person prior to the presentation.
+We finalised backend with the model showing 65% score, and the system 74% score.
+We ended up not using the results page and connected backend to the index page of frontend with a results box that appears over the input box.
+
+Week 10
+This week each team member has been delegated sections of the final report to work on and to be completed and submitted on friday.
