@@ -25,3 +25,20 @@ week5:
 
 week6:
 -wait for Row and Denny to complete thier frontend part and combine the frontend and backend part together
+
+week7:
+-merge the frontend with backend code with python
+
+week8:
+-prepare the presentation script
+-draft the presentation slide
+
+week9:
+-prepare individual the presentation slide
+-Saturday meeting for the presentation preparation
+-assign the final report part
+
+week10:
+-record the presentation video
+-fix the rest of frontend error 
+-submit the final code
