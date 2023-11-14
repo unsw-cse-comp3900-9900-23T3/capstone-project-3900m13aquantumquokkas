@@ -30,8 +30,10 @@ import os
 class Backend_system:
     def __init__(self):
         # Load pre trained model
-        
-        self.loaded_model = joblib.load(os.path.join("backend", "logistic_regression.pkl"))
+
+        self.loaded_model = joblib.load(
+            os.path.join("backend", "logistic_regression.pkl")
+        )
         # Load pre trained model
         self.loaded_scaler = joblib.load(os.path.join("backend", "standard_scaler.pkl"))
         # API key to OpenAI chatbot is stored in separate txt file.
@@ -478,7 +480,6 @@ def detect(input):
     prediction, probability = model_prediction(pd_dataframe, system.loaded_model)
     print("Prediction conducted")
     print(prediction, probability)
-    print(prediction == 1)
     print(probability[prediction])
     # Generate query with OpenAI API
     query = query_generation(input)
@@ -492,7 +493,7 @@ def detect(input):
     explanation = explaination_generation(
         input, prediction, probability, resource, analysis
     )
-    print("Explaination generated: "+ explanation)
+    print("Explaination generated: " + explanation)
 
     # Close stderr redirection
     sys.stderr.close()
