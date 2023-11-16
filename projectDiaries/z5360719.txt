@@ -40,4 +40,4 @@ We finalised backend with the model showing 65% score, and the system 74% score.
 I made a result section which is connected to backend server and used javacript functions to make it only appears on the page once the result is generated.
 
 Week 10
-This week we all focused on completing the final report to be submited before due date. 
+This week we all focused on completing the final report to be submited before due date. We all actively discussed and followed up each issue raised by the team through discord. We managed to finalise everything one day early.
