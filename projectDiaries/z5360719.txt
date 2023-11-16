@@ -29,3 +29,15 @@ Rowena and I built the first version of the about me and loading page. Other mem
 
 Week 7
 Rowena and I improved the website design by implementing the loading bar as an overlay instead of an extra page, also added top navigation bar.
+
+Week 8
+We got granted access to ChatGPT 4 by the client. We tried to set up python code to mimick backend output and the server. However we were not able to pass the user input across
+different webpage therefore our result page current cannot display any result.
+
+Week 9
+This week our team mainly focused on the presentation and completing our program.
+We finalised backend with the model showing 65% score, and the system 74% score. Regarding the result not showing issue, we decide to not direct between multiple pages but merge all the elements on one page.
+I made a result section which is connected to backend server and used javacript functions to make it only appears on the page once the result is generated.
+
+Week 10
+This week we all focused on completing the final report to be submited before due date. 
